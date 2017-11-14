@@ -15,7 +15,7 @@ Web App Fantasy Draft
 
 ## Contributing
 
-1. Clone it: 'git clone https://github.com/patrickspensieri/soen343.git'
+1. Clone it: 'git clone https://github.com/andypham29/NHLTranDraft.git'
 2. Create your feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -am "Add some feature"`
 4. Push to the branch: `git push origin my-new-feature`
