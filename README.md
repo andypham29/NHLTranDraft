@@ -1,5 +1,6 @@
 # NHLTranDraft
 Web App Fantasy Draft
+https://tranhockeypool.herokuapp.com/
 
 ## Installation
 
