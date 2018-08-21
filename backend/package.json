@@ -2,8 +2,10 @@
   "name": "nhltrandraft",
   "version": "1.0.0",
   "description": "Web App Fantasy Draft",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "babel-node server.js",
+    "dev": "babel-watch server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +21,7 @@
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.3",
+    "mongod": "^2.0.0",
     "mongoose": "^5.2.9",
     "npm": "5.7.1"
   },

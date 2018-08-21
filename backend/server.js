@@ -16,7 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //connect to mongodb url
-mongoose.connect('');
+mongoose.connect('mongodb://localhost:27017/issues');
 
 //connection to mongodb + success msg
 const connection = mongoose.connection;
@@ -25,7 +25,7 @@ connection.once('open', () => {
 });
 
 //to send http GET request
-router.rout('/issue').get((req, res) =>{
+router.route('/issue').get((req, res) =>{
     //mongoose models
     Issue.find((err, issues) => {
         if(err)
@@ -34,6 +34,55 @@ router.rout('/issue').get((req, res) =>{
             res.json(issues);
     })
 });
+
+//any url link after route issue is the id
+router.route('/issue/:id').get((req, res) => {
+    Issue.findById(req.params.id, (err, issue) => {
+        if(err)
+            console.log(err)
+        else
+            res.json(issue);
+    });
+});
+
+router.route('/issue/add').post((req, res) => {
+    let issue = new Issue(req.body);
+    issue.save()
+        .then(issue => {
+            res.status(200).json({'issue': 'Added successfully'});
+        })
+        .catch(err => {
+            res.status(400).send('Failed to add new data')
+        })
+});
+router.route('/issue/update/:id').post((req, res) => {
+   Issue.findById(req.params.id, (err, issue) => {
+       if(!issue)
+           return next(new Error('Could not load document'));
+       else{
+           issue.title = req.body.responsible;
+           issue.description = req.body.description;
+           issue.severity = req.body.severity;
+           issue.status = req.body.status;
+
+           //store in db as we update
+           issue.save().then(issue => {
+               res.json('Update done')
+           }).catch(err => {
+               res.status(400).send('Update failed');
+           });
+       }
+   });
+});
+
+router.route('issue/delete/:id').get((req, res) => {
+    Issue.findByIdAndRemove({_id: req.params.id}, (err, issue)=> {
+        if(err)
+            res.json(err);
+        else res.json('Remove successfully');
+    });
+});
+
 //middleware
 app.use('/', router);
 

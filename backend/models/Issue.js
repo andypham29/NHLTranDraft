@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+//schema for the mongodb
 const Schema = mongoose.Schema;
 
 let Isssue = new Schema({
