@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule} from "@angular/common/http";
 
-import {MatToolbarModule} from '@angular/material';
+//material design imports
+import {MatToolbarModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatButtonModule, MatCardModule, MatTableModule, MatDividerModule, MatSnackBarModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,8 +33,19 @@ const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     MatToolbarModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatTableModule,
+    MatDividerModule,
+    MatSnackBarModule
+
+],
   providers: [IssueService],
   bootstrap: [AppComponent]
 })
