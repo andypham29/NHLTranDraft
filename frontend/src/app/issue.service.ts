@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ export class IssueService {
           responsible: responsible,
           description: description,
           severity: severity,
-          statusbar: status
+          status: status
       };
       return this.http.post('${this.uri}/issues/update/${id}', issue);
   }

@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 //schema for the mongodb
 const Schema = mongoose.Schema;
 
-let Isssue = new Schema({
+let Issue = new Schema({
    title:{
        type: String
    },
@@ -23,4 +23,4 @@ let Isssue = new Schema({
 
 });
 
-export default mongoose.model('Issue', Isssue);
+export default mongoose.model('Issue', Issue);
