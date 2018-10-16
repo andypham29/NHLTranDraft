@@ -1,6 +1,9 @@
 # NHLTranDraft
-Web App Fantasy Draft
+Web App Hockey Pool Manager 
 https://tranhockeypool.herokuapp.com/
+
+## Description
+Web application using the MEAN stack.
 
 ## Installation
 
